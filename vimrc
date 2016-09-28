@@ -21,6 +21,9 @@ Plugin 'Chiel92/vim-autoformat'
 " HTML5
 Plugin 'othree/html5.vim'
 
+" Bracketed paste
+Plugin 'ConradIrwin/vim-bracketed-paste'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
