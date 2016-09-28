@@ -113,6 +113,10 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
+" Spell checking
+set spelllang=en
+set spell
+
 " Solarized
 set background=dark
 colorscheme solarized
