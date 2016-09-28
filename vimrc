@@ -18,6 +18,9 @@ Plugin 'altercation/vim-colors-solarized'
 " Auto-Format
 Plugin 'Chiel92/vim-autoformat'
 
+" HTML5
+Plugin 'othree/html5.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -139,3 +142,6 @@ let b:formatdef_custom_c = '"astyle --mode=c
 let b:formatters_c = ['custom_c']
 
 noremap <F3> :Autoformat<CR>
+
+" HTML5
+let g:html_exclude_tags = ['html', 'style', 'script', 'body']
