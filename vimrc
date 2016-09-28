@@ -126,6 +126,14 @@ nnoremap g# g#zz
 set spelllang=en
 set spell
 
+" https://github.com/sd65/MiniVim
+set ttyfast " Faster refraw
+set shortmess+=I " No intro when starting Vim
+set encoding=utf-8  " The encoding displayed.
+set fileencoding=utf-8  " The encoding written to file.
+" Open all cmd args in new tabs
+execute ":silent tab all"
+
 " Solarized
 set background=dark
 colorscheme solarized
