@@ -15,6 +15,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Solarized
 Plugin 'altercation/vim-colors-solarized'
 
+" Auto-Format
+Plugin 'Chiel92/vim-autoformat'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -120,3 +123,19 @@ set spell
 " Solarized
 set background=dark
 colorscheme solarized
+
+" Auto-Format
+let b:formatdef_custom_c = '"astyle --mode=c
+			\ --style=linux
+			\ --indent=tab=8
+			\ --break-blocks=all
+			\ --pad-oper
+			\ --pad-header
+			\ --unpad-paren
+			\ --align-pointer=name
+			\ --add-brackets
+			\ --max-code-length=80
+			\ --lineend=linux"'
+let b:formatters_c = ['custom_c']
+
+noremap <F3> :Autoformat<CR>
