@@ -3,14 +3,28 @@
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
+filetype off
+
+" Set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Let Vundle manage Vundle
+Plugin 'VundleVim/Vundle.vim'
+
+" Solarized
+Plugin 'altercation/vim-colors-solarized'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
-filetype indent plugin on
+filetype plugin indent on
 
 " Enable syntax highlighting
-syntax on
+syntax enable
 
 " Better command-line completion
 set wildmenu
@@ -75,22 +89,18 @@ set cindent
 set formatoptions=tcqlron
 set cinoptions=:0,l1,t0,g0
 
-" Keywords
-syntax keyword cOperator likely unlikely
-syntax keyword cType u8 u16 u32 u64 s8 s16 s32 s64
-
 " Highlight 80 column
 set colorcolumn=+1
 hi ColorColumn ctermbg=black
 
 " Remove trailing whitespaces
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * %s/\s\+$//e
 
 " Remove multiple blank line
-autocmd BufWritePre * :g/^\_$\n\_^$/de
+autocmd BufWritePre * g/^\_$\n\_^$/de
 
 " Remove ending blank line
-autocmd BufWritePre * :%s#\($\n\s*\)\+\%$##e
+set noeol
 
 " Searching autocompletion
 set incsearch
@@ -103,36 +113,6 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-" HTML5 configuration
-let g:html_exclude_tags = ['html', 'style', 'script', 'body']
-
-" Auto-Format configuration
-let g:formatprg_args_expr_c = '"--mode=c
-			\ --style=linux
-			\ --indent=tab=8
-			\ --break-blocks=all
-			\ --pad-oper
-			\ --pad-header
-			\ --unpad-paren
-			\ --align-pointer=name
-			\ --add-brackets
-			\ --max-code-length=80
-			\ --lineend=linux"'
-
-" Auto-Format remap
-" * Auto-Format
-" * Remove trailing whitespaces
-" * Remove multiple blank line
-" * Remove ending blank line
-noremap <F3> :Autoformat<CR>
-			\ :%s/\s\+$//e<CR>
-			\ :g/^\_$\n\_^$/de<CR>
-			\ :%s#\($\n\s*\)\+\%$##e<CR><C-L>
-
 " Solarized
-if $TERM =~ "^xterm" || $TERM =~ "^rxvt"
-	syntax enable
-	set background=dark
-	let g:solarized_termtrans=1
-	colorscheme solarized
-endif
+set background=dark
+colorscheme solarized
