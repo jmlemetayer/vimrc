@@ -1,6 +1,6 @@
 #!/bin/sh -e
-sudo apt-get install -qq git vim
-rm -rf ~/.vim/bundle/Vundle.vim ~/.vim/bundle/vim-colors-solarized
+dpkg -s git vim >/dev/null 2>&1 || sudo apt-get install -qq git vim
+rm -rf ~/.vim* ~/.astylerc
 git clone -q https://github.com/VundleVim/Vundle.vim.git \
 	~/.vim/bundle/Vundle.vim
 git clone -q https://github.com/altercation/vim-colors-solarized \
