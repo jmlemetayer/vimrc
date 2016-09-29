@@ -143,3 +143,6 @@ noremap <F3> :Autoformat<CR>
 
 " HTML5
 let g:html_exclude_tags = ['html', 'style', 'script', 'body']
+
+" Sudo helper
+cnoremap w!! w !sudo tee > /dev/null %
