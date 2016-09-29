@@ -139,19 +139,6 @@ set background=dark
 colorscheme solarized
 
 " Auto-Format
-let b:formatdef_custom_c = '"astyle --mode=c
-			\ --style=linux
-			\ --indent=tab=8
-			\ --break-blocks=all
-			\ --pad-oper
-			\ --pad-header
-			\ --unpad-paren
-			\ --align-pointer=name
-			\ --add-brackets
-			\ --max-code-length=80
-			\ --lineend=linux"'
-let b:formatters_c = ['custom_c']
-
 noremap <F3> :Autoformat<CR>
 
 " HTML5
