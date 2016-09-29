@@ -146,3 +146,8 @@ let g:html_exclude_tags = ['html', 'style', 'script', 'body']
 
 " Sudo helper
 cnoremap w!! w !sudo tee > /dev/null %
+
+" Use only clipboard for yank & paste if available
+if has('unnamedplus')
+	set clipboard=unnamedplus
+endif
