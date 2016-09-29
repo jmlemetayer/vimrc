@@ -1,0 +1,10 @@
+#!/bin/sh -e
+sudo apt-get install -qq git vim
+rm -rf ~/.vim/bundle/Vundle.vim ~/.vim/bundle/vim-colors-solarized
+git clone -q https://github.com/VundleVim/Vundle.vim.git \
+	~/.vim/bundle/Vundle.vim
+git clone -q https://github.com/altercation/vim-colors-solarized \
+	~/.vim/bundle/vim-colors-solarized
+install -m 644 ${0%/*}/vimrc ~/.vimrc
+mkdir -p ~/.vim/backup
+vim +PluginInstall +qa
