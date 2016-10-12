@@ -27,6 +27,9 @@ Plugin 'ConradIrwin/vim-bracketed-paste'
 " Lightline
 Plugin 'itchyny/lightline.vim'
 
+" Fugitive
+Plugin 'tpope/vim-fugitive'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -157,4 +160,50 @@ endif
 
 " Lightline
 set noshowmode
-let g:lightline = { 'colorscheme': 'solarized' }
+let g:lightline = {
+	\ 'colorscheme': 'solarized',
+	\ 'active': {
+	\ 	'left': [ [ 'mode', 'paste' ],
+	\ 		[ 'fugitive', 'filename' ] ]
+	\ },
+	\ 'component_function': {
+	\ 	'fugitive': 'LightLineFugitive',
+	\ 	'readonly': 'LightLineReadonly',
+	\ 	'modified': 'LightLineModified',
+	\ 	'filename': 'LightLineFilename'
+	\ },
+	\ 'separator': { 'left': "", 'right': "" },
+	\ 'subseparator': { 'left': "|", 'right': "|" }
+	\ }
+
+function! LightLineModified()
+	if &filetype == "help"
+		return ""
+	elseif &modified
+		return "+"
+	elseif &modifiable
+		return ""
+	else
+		return ""
+	endif
+endfunction
+
+function! LightLineReadonly()
+	if &filetype == "help"
+		return ""
+	elseif &readonly
+		return "RO"
+	else
+		return ""
+	endif
+endfunction
+
+function! LightLineFugitive()
+	return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+function! LightLineFilename()
+return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+	\ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+	\ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
