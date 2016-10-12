@@ -24,6 +24,9 @@ Plugin 'othree/html5.vim'
 " Bracketed paste
 Plugin 'ConradIrwin/vim-bracketed-paste'
 
+" Lightline
+Plugin 'itchyny/lightline.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -151,3 +154,7 @@ cnoremap w!! w !sudo tee > /dev/null %
 if has('unnamedplus')
 	set clipboard=unnamedplus
 endif
+
+" Lightline
+set noshowmode
+let g:lightline = { 'colorscheme': 'solarized' }
