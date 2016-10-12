@@ -1,10 +1,13 @@
 #!/bin/sh -e
 dpkg -s git vim >/dev/null 2>&1 || sudo apt-get install -qq git vim
-rm -rf ~/.vim* ~/.astylerc
+rm -rf ~/.vim* ~/.astylerc ~/.local/share/fonts
 git clone -q https://github.com/VundleVim/Vundle.vim.git \
 	~/.vim/bundle/Vundle.vim
 git clone -q https://github.com/altercation/vim-colors-solarized \
 	~/.vim/bundle/vim-colors-solarized
+mkdir -p ~/.local/share/fonts
+install -m 644 ${0%/*}/fonts/* ~/.local/share/fonts
+fc-cache ~/.local/share/fonts
 install -m 644 ${0%/*}/astylerc ~/.astylerc
 install -m 644 ${0%/*}/vimrc ~/.vimrc
 mkdir -p ~/.vim/backup

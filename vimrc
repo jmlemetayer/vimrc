@@ -172,8 +172,8 @@ let g:lightline = {
 	\ 	'modified': 'LightLineModified',
 	\ 	'filename': 'LightLineFilename'
 	\ },
-	\ 'separator': { 'left': "", 'right': "" },
-	\ 'subseparator': { 'left': "|", 'right': "|" }
+	\ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
+	\ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
 	\ }
 
 function! LightLineModified()
@@ -192,14 +192,18 @@ function! LightLineReadonly()
 	if &filetype == "help"
 		return ""
 	elseif &readonly
-		return "RO"
+		return "\u2b64"
 	else
 		return ""
 	endif
 endfunction
 
 function! LightLineFugitive()
-	return exists('*fugitive#head') ? fugitive#head() : ''
+	if exists("*fugitive#head")
+		let branch = fugitive#head()
+		return branch !=# '' ? "\u2b60 ".branch : ''
+	endif
+	return ''
 endfunction
 
 function! LightLineFilename()
