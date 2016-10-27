@@ -30,6 +30,9 @@ Plugin 'itchyny/lightline.vim'
 " Fugitive
 Plugin 'tpope/vim-fugitive'
 
+" Hexmode
+Plugin 'fidian/hexmode'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -211,3 +214,6 @@ return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
 	\ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
 	\ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
+
+" Hexmode
+noremap <F4> :Hexmode<CR>
