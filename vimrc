@@ -33,6 +33,9 @@ Plugin 'tpope/vim-fugitive'
 " Hexmode
 Plugin 'fidian/hexmode'
 
+" Emoji
+Plugin 'junegunn/vim-emoji'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -217,3 +220,6 @@ endfunction
 
 " Hexmode
 noremap <F4> :Hexmode<CR>
+
+" Emoji
+set completefunc=emoji#complete
