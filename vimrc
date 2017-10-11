@@ -36,6 +36,9 @@ Plugin 'fidian/hexmode'
 " Emoji
 Plugin 'junegunn/vim-emoji'
 
+" Abolish
+Plugin 'tpope/vim-abolish'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
