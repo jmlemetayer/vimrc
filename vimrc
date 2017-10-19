@@ -39,6 +39,9 @@ Plugin 'junegunn/vim-emoji'
 " Abolish
 Plugin 'tpope/vim-abolish'
 
+" A.vim
+Plugin 'kris2k/a.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -226,3 +229,7 @@ noremap <F4> :Hexmode<CR>
 
 " Emoji
 set completefunc=emoji#complete
+
+" A.vim
+noremap <F5> :AV<CR>
+noremap <F6> :A<CR>
